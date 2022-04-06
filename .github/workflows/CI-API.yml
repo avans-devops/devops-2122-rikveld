@@ -31,6 +31,7 @@ jobs:
       run: |
         cd ./services
         npm test
-
+    - name: Run Eslint
+      run: npm run lint
     - name: Jest coverage report
       uses: ArtiomTr/jest-coverage-report-action@v2.0.5
