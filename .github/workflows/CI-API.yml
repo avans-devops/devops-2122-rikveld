@@ -1,6 +1,6 @@
 on:
   push:
-    paths: [ ./services/** ]
+    paths: [ services/** ]
 
   pull_request:
     branches: [ main ]
