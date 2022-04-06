@@ -22,6 +22,11 @@
     "coveragePathIgnorePatterns": [
       "/node_modules/"
     ],
+    "coverageThreshold": {
+      "global": {
+          "lines": 80
+      }
+  },
     "preset": "@shelf/jest-mongodb"
   },
   "devDependencies": {
