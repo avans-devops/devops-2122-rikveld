@@ -27,12 +27,14 @@ jobs:
         cache: 'npm'
         cache-dependency-path: backend/package-lock.json
     - name: Install dependencies
-      run: npm ci
+      run: |
+        cd ./backend
+        npm ci
     - name: Run Build
       run: npm run build --if-present
     - name: Run Test
       run: |
-        cd ./services
+        cd ./backend
         npm test
     - name: Run Eslint
       run: npm run lint
