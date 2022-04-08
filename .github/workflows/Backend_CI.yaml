@@ -46,5 +46,4 @@ jobs:
       uses: ArtiomTr/jest-coverage-report-action@v2.0.5
       with:
         threshold: 70
-        cache: 'npm'
-        cache-dependency-path: backend/package-lock.json
+        working-directory: ./backend
