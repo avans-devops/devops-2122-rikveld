@@ -45,11 +45,11 @@ jobs:
 
     #Whatever I tried, couldn't get this to work
 
-    # - name: Jest coverage report
-      # uses: ArtiomTr/jest-coverage-report-action@v2.0.5
-      # with:
-      #   threshold: 70
-      #   working-directory: ./backend
+    - name: Jest coverage report
+      uses: ArtiomTr/jest-coverage-report-action@v2.0.5
+      with:
+        threshold: 70
+        working-directory: ./backend
 
     #This also didn't work, << Bad Credentials
       # uses: pomekhin/jest-github-action@1.1.5
