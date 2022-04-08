@@ -1,0 +1,45 @@
+name: Backend_CI
+
+on:
+  push:
+    # paths: [ backend/** ]
+
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+  
+    runs-on: ubuntu-latest
+    env: 
+      working-directory: ../backend
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x, 16.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+        cache-dependency-path: backend/package-lock.json
+    - name: Install dependencies
+      run:         npm ci
+      with: 
+    - name: Run Build
+      run: npm run build --if-present
+      with: ./backend
+    - name: Run Test
+      run: npm test
+      with: ./backend
+    - name: Run Eslint
+      with: ./backend
+      run: npm run lint
+    - name: Jest coverage report
+      uses: ArtiomTr/jest-coverage-report-action@v2.0.5
+      with:
+        threshold: 70
+        working-directory: ./backend
