@@ -12,7 +12,7 @@ jobs:
   
     runs-on: ubuntu-latest
     env: 
-      working-directory: ./backend
+      working-directory: ../backend
     strategy:
       matrix:
         node-version: [12.x, 14.x, 16.x]
@@ -46,3 +46,5 @@ jobs:
       uses: ArtiomTr/jest-coverage-report-action@v2.0.5
       with:
         threshold: 70
+        cache: 'npm'
+        cache-dependency-path: backend/package-lock.json
