@@ -48,7 +48,7 @@ jobs:
       #   threshold: 70
       #   working-directory: ./backend
       uses: mattallty/jest-github-action@v1  
-        env:
-          GITHUB_TOKEN: ${{secrets.SUPERSECUREDATABASEAPIKEY}}
+      env:
+        GITHUB_TOKEN: ${{secrets.SUPERSECUREDATABASEAPIKEY}}
       with:
         working-directory: "backend"
