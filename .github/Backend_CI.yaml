@@ -1,4 +1,4 @@
-name: CI-API
+name: Backend_CI
 
 on:
   push:
