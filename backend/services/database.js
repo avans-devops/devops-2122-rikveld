@@ -13,8 +13,8 @@ let dbConnection;
 module.exports = {
   client: client,
   getDb: async function() {
-    console.log("uri: ", uri);
-    console.log("dbName: ", dbName);
+    console.log('uri: ', uri);
+    console.log('dbName: ', dbName);
 
     return new Promise((resolve, reject) => {
       if (!dbConnection) {
