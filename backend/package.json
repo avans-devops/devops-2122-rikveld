@@ -8,13 +8,6 @@
     "lint": "npx eslint .",
     "dev": "nodemon -r dotenv/config ./bin/www"
   },
-  "jest": {
-    "testEnvironment": "node",
-    "preset": "@shelf/jest-mongodb",
-    "coveragePathIgnorePatterns": [
-      "/node_modules/"
-    ]
-  },
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
@@ -31,5 +24,12 @@
     "eslint-config-google": "^0.14.0",
     "jest": "^27.5.1",
     "supertest": "^6.2.2"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "preset": "@shelf/jest-mongodb",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
   }
 }
