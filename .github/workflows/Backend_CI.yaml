@@ -42,13 +42,18 @@ jobs:
       run: |
         cd ./backend
         npm run lint
-    - name: Jest coverage report
+
+    #Whatever I tried, couldn't get this to work
+
+    # - name: Jest coverage report
       # uses: ArtiomTr/jest-coverage-report-action@v2.0.5
       # with:
       #   threshold: 70
       #   working-directory: ./backend
-      uses: pomekhin/jest-github-action@1.1.5
-      env:
-        GITHUB_TOKEN: testtest
-      with:
-        working-directory: "backend"
+
+    #This also didn't work, << Bad Credentials
+      # uses: pomekhin/jest-github-action@1.1.5
+      # env:
+      #   GITHUB_TOKEN: ${{secrets.TOKEN}}
+      # with:
+      #   working-directory: "backend"
