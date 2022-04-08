@@ -46,4 +46,4 @@ jobs:
       uses: ArtiomTr/jest-coverage-report-action@v2.0.5
       with:
         threshold: 70
-        working-directory: ./backend
+        working-directory: ../backend
