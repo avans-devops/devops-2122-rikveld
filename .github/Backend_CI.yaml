@@ -2,7 +2,7 @@ name: Backend_CI
 
 on:
   push:
-    # paths: [ services/** ]
+    paths: [ backend/** ]
 
   pull_request:
     branches: [ main ]
