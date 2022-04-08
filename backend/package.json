@@ -18,6 +18,7 @@
       "global": {
           "lines": 70
       }
+    }
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
