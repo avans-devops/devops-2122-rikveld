@@ -14,7 +14,9 @@
     "coveragePathIgnorePatterns": [
       "/node/modules/"
     ],
-    "coverageThreshold": "75"
+    "coverageThreshold": {
+      "global": 75
+    }
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
