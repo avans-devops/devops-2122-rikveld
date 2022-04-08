@@ -1,8 +1,9 @@
+require('dotenv').config()
 const { MongoClient } = require('mongodb');
 
 // Connection URI
 const uri = process.env.MONGO_URL;
-const dbName = process.env.DB_NAME | 'myapp';
+const dbName = process.env.DB_NAME || 'test';
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -13,6 +14,7 @@ let dbConnection;
 module.exports = {
   client: client,
   getDb: async function() {
+    console.log(dbName);
     return new Promise((resolve, reject) => {
       if (!dbConnection) {
         console.log('Opening connection');
