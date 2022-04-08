@@ -49,6 +49,6 @@ jobs:
       #   working-directory: ./backend
       uses: pomekhin/jest-github-action@1.1.5
       env:
-        GITHUB_TOKEN: ${{secrets.TOKEN}}
+        GITHUB_TOKEN: TOKEN
       with:
         working-directory: "backend"
