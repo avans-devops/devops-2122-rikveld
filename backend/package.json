@@ -13,10 +13,7 @@
     "preset": "@shelf/jest-mongodb",
     "coveragePathIgnorePatterns": [
       "/node/modules/"
-    ],
-    "coverageThreshold": {
-      "global": 75
-    }
+    ]
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
