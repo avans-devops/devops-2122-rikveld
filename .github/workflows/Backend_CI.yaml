@@ -44,3 +44,6 @@ jobs:
         npm run lint
     - name: Jest coverage report
       uses: ArtiomTr/jest-coverage-report-action@v2.0.5
+      with:
+        cache: 'npm'
+        cache-dependency-path: backend/package.json
