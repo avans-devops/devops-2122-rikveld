@@ -42,7 +42,7 @@ jobs:
     - name: Jest coverage report
       uses: ArtiomTr/jest-coverage-report-action@v2.0.5
       with:
-        threshold: 70
+        threshold: 1
         working-directory: ./backend
 
     #This also didn't work, << Bad Credentials
