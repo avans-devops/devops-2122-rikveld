@@ -42,6 +42,7 @@ jobs:
     - name: Jest coverage report
       uses: ArtiomTr/jest-coverage-report-action@v2.0-rc.6
       with:
+        github-token: ${{secrets.GITHUB_TOKEN}}
         threshold: 70
         working-directory: ./backend
 
