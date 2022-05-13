@@ -17,9 +17,8 @@ module.exports = {
     return new Promise((resolve, reject) => {
       if (!dbConnection) {
         console.log('Opening connection');
-        console.log(uri);
+        console.log('URI: ', uri);
         client.connect(function(err, db) {
-          console.log(db);
           if (err || !db) {
             reject(err);
           }
