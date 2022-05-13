@@ -4,13 +4,8 @@ WORKDIR /app
 
 COPY ./backend /app
 
-ENV PORT 12345
-ENV DB_PORT 27017
-ENV MONGO_URL mongodb://localhost:27017
-ENV DB_NAME mongo-devops
-
 RUN npm install
 
-EXPOSE 12345
+EXPOSE 3000
 
 CMD ["npm", "start"]

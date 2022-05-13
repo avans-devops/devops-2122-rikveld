@@ -1,4 +1,4 @@
-require('dotenv').config()
+require('dotenv').config();
 const { MongoClient } = require('mongodb');
 
 // Connection URI
@@ -14,11 +14,12 @@ let dbConnection;
 module.exports = {
   client: client,
   getDb: async function() {
-    console.log(dbName);
     return new Promise((resolve, reject) => {
       if (!dbConnection) {
         console.log('Opening connection');
+        console.log(uri);
         client.connect(function(err, db) {
+          console.log(db);
           if (err || !db) {
             reject(err);
           }

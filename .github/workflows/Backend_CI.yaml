@@ -52,8 +52,8 @@ jobs:
     #     working-directory: backend
 
     #This also didn't work, << Bad Credentials
-      # uses: pomekhin/jest-github-action@1.1.5
-      # env:
-      #   GITHUB_TOKEN: ${{secrets.TOKEN}}
-      # with:
-      #   working-directory: "backend"
+    # uses: pomekhin/jest-github-action@1.1.5
+    # env:
+    #   GITHUB_TOKEN: ${{secrets.TOKEN}}
+    # with:
+    #   working-directory: "backend"
