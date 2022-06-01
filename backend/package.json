@@ -3,10 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "preinstall": "npm i nodemon -g",
     "start": "node ./bin/www",
     "test": "jest",
     "lint": "npx eslint .",
-    "dev": "nodemon -r dotenv/config ./bin/www"
+    "dev": "nodemon --legacy-watch -r dotenv/config ./bin/www"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
