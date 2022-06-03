@@ -2,7 +2,7 @@ FROM node:14
 
 WORKDIR /app
 
-COPY ./backend /app
+COPY . /app
 
 ENV PORT 12345
 ENV DB_PORT 27017
