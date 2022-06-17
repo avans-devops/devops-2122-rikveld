@@ -2,15 +2,18 @@ const express = require('express');
 const router = express.Router(); //eslint-disable-line
 const dbo = require('../services/database');
 
+
 router.route('/').get((req, res) => {
   dbo.getDb().then(db => {
     db.collection('users')
         .find({}).limit(50)
         .toArray(function(err, result) {
           if (err) {
-            res.status(400).send('Error fetching users!');
+            console.log(err);
+            // res.status(400).send('Error fetching users!');
           } else {
             res.json(result);
+            console.log(result);
           }
         });
   },
@@ -23,8 +26,7 @@ router.route('/').get((req, res) => {
               if (err) {
                 res.status(400).send('Error inserting user!');
               } else {
-                console.log('id', result.insertedId);
-                res.status(204).send();
+                res.status(204).send('Succesfully inserted user: ' + req.body);
               }
             });
       });

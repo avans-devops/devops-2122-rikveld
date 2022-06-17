@@ -3,11 +3,26 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const bodyParser = require("body-parser");
+
+
+const cors = require('cors');
+
+let corsOptions = { 
+  origin: 'http://localhost:8080',
+  optionsSuccessStatus: 200
+}
+
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
 const app = express();
+
+app.use(cors(corsOptions));
+
+app.use(bodyParser.urlencoded({extended: true}));
+// app.use(bodyParser.json());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

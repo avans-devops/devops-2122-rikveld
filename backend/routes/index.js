@@ -3,7 +3,7 @@ const router = express.Router(); //eslint-disable-line
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'tfdafasest' });
 });
 
 module.exports = router;
