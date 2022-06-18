@@ -1,16 +1,1 @@
-
-<button (click)="getUsers()">Get Users</button>
-
-<form (ngSubmit)="onSubmit()" #userForm="ngForm">
-  <input type="text" id="name" name="name" placeholder="name" required
-  [(ngModel)]="user.name" #name="ngModel"/>
-  <button [disabled]="!userForm.form.valid" type="submit">submit</button>
-</form>
-
-
-<h1>Users</h1>
-<ul>
-  <li *ngFor="let user of users">
-   {{ user.name }}
-  </li>
-</ul>
+<app-user></app-user>

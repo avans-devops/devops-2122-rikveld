@@ -1,7 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs'
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { catchError, map, tap } from 'rxjs/operators'
+
+import { environment } from 'src/environments/environment';
 
 export class User {
   constructor(
@@ -16,6 +18,8 @@ export class UserService {
 
   constructor( private http: HttpClient) { }
 
+  url = environment.apiUrl + '/users';
+
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -23,7 +27,8 @@ export class UserService {
   }
 
   getAllUsers(): Observable<User[]> {
-    return this.http.get<User[]>('http://localhost:3000/users')
+    console.log(this.url);
+    return this.http.get<User[]>(this.url)
     .pipe(
       tap(_ => console.log('fetched heroes')),
       catchError(this.handleError<User[]>('getUsers'))
@@ -31,7 +36,7 @@ export class UserService {
   }
 
   addUser(user: User): Observable<User> {
-    return this.http.post<User>('http://localhost:3000/users', user, this.httpOptions)
+    return this.http.post<User>(this.url, user, this.httpOptions)
       .pipe(
         catchError(this.handleError('addUser', user))
       );
