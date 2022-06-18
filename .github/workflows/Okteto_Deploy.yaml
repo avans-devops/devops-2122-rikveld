@@ -1,0 +1,31 @@
+name: Okteto_Deploy
+
+on:
+  push:
+    branches:
+      - main
+    types: [closed]
+
+jobs:
+  devflow:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@master
+
+    - name: context
+      uses: okteto/context@latest
+      with:
+        token: ${{ secrets.OKTETO_TOKEN }}
+
+    - name: "Activate Namespace"
+      uses: okteto/namespace@latest
+      with:
+        name: rikveld
+
+    - name: "Trigger the pipeline"
+      uses: okteto/pipeline@latest
+      with:
+        name: pr-${{ github.event.number }}
+        timeout: 8m
+        skipIfExists: true
