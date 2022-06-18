@@ -7,9 +7,9 @@ const dbUser = process.env.DB_USER;
 const dbPassword = process.env.DB_PASSWORD;
 const dbPort = process.env.DB_PORT || '27017';
 
-let uri = "";
+let uri = '';
 
-if(dbUser && dbPassword) {
+if (dbUser && dbPassword) {
   uri = `mongodb://${dbUser}:${dbPassword}@${dbName}:${dbPort}`;
 } else {
   uri = process.env.MONGO_URL;
