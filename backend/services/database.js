@@ -3,12 +3,18 @@ const { MongoClient } = require('mongodb');
 
 // Connection URI
 const dbName = process.env.DB_NAME || 'my_db';
-const dbUser = process.env.DB_USER || 'root';
-const dbPassword = process.env.DB_PASSWORD || 'root';
+const dbUser = process.env.DB_USER;
+const dbPassword = process.env.DB_PASSWORD;
 const dbPort = process.env.DB_PORT || '27017';
-const uri = `mongodb://${dbUser}:${dbPassword}@${dbName}:${dbPort}`;
 
-console.log(uri);
+let uri = "";
+
+if(!DB_USER || ! DB_PASSWORD) {
+  uri = `mongodb://${dbUser}:${dbPassword}@${dbName}:${dbPort}`;
+} else {
+  uri = process.env.MONGO_URL;
+}
+
 
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
