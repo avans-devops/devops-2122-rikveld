@@ -22,15 +22,13 @@ export class UserComponent implements OnInit {
   onSubmit() {
     if(this.user.name){
       this.userService.addUser(this.user).subscribe(user => {
-        console.log(this.user);
         this.users.push(this.user)
-        console.log(this.users)});
+      })
     }
   }
 
   getUsers(){
     this.userService.getAllUsers().subscribe(users => {
-      console.log(users);
       if(users){
         this.users = users;
       }

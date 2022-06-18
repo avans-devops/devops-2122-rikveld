@@ -3,15 +3,15 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const bodyParser = require("body-parser");
+const bodyParser = require('body-parser');
 
 
 const cors = require('cors');
 
-let corsOptions = { 
+const corsOptions = {
   origin: 'https://frontend-rikveld.cloud.okteto.net',
-  optionsSuccessStatus: 200
-}
+  optionsSuccessStatus: 200,
+};
 
 
 const indexRouter = require('./routes/index');
@@ -21,7 +21,7 @@ const app = express();
 
 app.use(cors(corsOptions));
 
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(bodyParser.json());
 
 // view engine setup

@@ -2,11 +2,20 @@ require('dotenv').config();
 const { MongoClient } = require('mongodb');
 
 // Connection URI
-const dbName = process.env.DB_NAME;
+const dbName = process.env.DB_NAME || 'my_db';
 const dbUser = process.env.DB_USER;
 const dbPassword = process.env.DB_PASSWORD;
-const dbPort = process.env.DB_PORT;
-const uri = `mongodb://${dbUser}:${dbPassword}@${dbName}:${dbPort}`;
+const dbPort = process.env.DB_PORT || '27017';
+
+let uri = '';
+
+if (dbUser && dbPassword) {
+  uri = `mongodb://${dbUser}:${dbPassword}@${dbName}:${dbPort}`;
+} else {
+  uri = process.env.MONGO_URL;
+}
+
+
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,

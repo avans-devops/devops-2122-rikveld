@@ -27,7 +27,6 @@ export class UserService {
   }
 
   getAllUsers(): Observable<User[]> {
-    console.log(this.url);
     return this.http.get<User[]>(this.url)
     .pipe(
       tap(_ => console.log('fetched heroes')),
