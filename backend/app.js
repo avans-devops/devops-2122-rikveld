@@ -9,7 +9,7 @@ const bodyParser = require("body-parser");
 const cors = require('cors');
 
 let corsOptions = { 
-  origin: 'http://localhost:8080',
+  origin: 'https://frontend-rikveld.cloud.okteto.net/',
   optionsSuccessStatus: 200
 }
 
