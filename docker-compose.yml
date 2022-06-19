@@ -44,9 +44,6 @@ services:
       ports:
         - 9090:9090
       command: --web.enable-lifecycle --config.file=/etc/prometheus/prometheus.yml
-      depends_on:
-        - db-exporter
-        - api
     db-exporter:
       image: bitnami/mongodb-exporter:latest
       environment:
