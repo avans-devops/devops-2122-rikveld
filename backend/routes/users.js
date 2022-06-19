@@ -32,4 +32,10 @@ router.route('/').get((req, res) => {
       });
     });
 
+router.get('/slow', function(re, res, next) {
+  setTimeout(() => {
+    res.json({foo: 'bar'})
+  }, 3000)
+});
+
 module.exports = router;
