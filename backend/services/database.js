@@ -1,4 +1,5 @@
 require('dotenv').config();
+const e = require('express');
 const { MongoClient } = require('mongodb');
 
 // Connection URI
@@ -33,7 +34,7 @@ module.exports = {
         client.connect(function(err, db) {
           if (err || !db) {
             reject(err);
-          }
+          } 
           dbConnection = db.db(dbName);
           console.log('Successfully connected to MongoDB.');
           resolve(dbConnection);

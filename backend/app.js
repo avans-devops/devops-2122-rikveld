@@ -5,14 +5,22 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 
-
 const cors = require('cors');
 
 const corsOptions = {
-  origin: 'https://frontend-rikveld.cloud.okteto.net',
+  origin: true,
   optionsSuccessStatus: 200,
 };
 
+const promBundle = require("express-prom-bundle");
+const metricsMiddleware = promBundle({
+  includePath: true,
+  includeStatusCode: true,
+  normalizePath: true,
+  promClient: {
+    collectDefaultMetrics: {}
+  }
+});
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -22,7 +30,6 @@ const app = express();
 app.use(cors(corsOptions));
 
 app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(bodyParser.json());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -34,8 +41,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(metricsMiddleware);
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
