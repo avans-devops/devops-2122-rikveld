@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const corsOptions = {
-  origin: true,
+  origin: '*',
   optionsSuccessStatus: 200,
 };
 
