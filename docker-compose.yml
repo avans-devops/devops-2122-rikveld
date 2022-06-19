@@ -51,9 +51,11 @@ services:
       ports: 
         -  9216:9216
     grafana:
-        build: ./grafana
-        ports:
-            - '3000:3000'
+      build:
+        context: ./backend
+        dockerfile: dockerfile
+      ports:
+        - '3000:3000'
 
 
 volumes:
